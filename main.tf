@@ -1,18 +1,9 @@
-provider "helm" {
-  kubernetes = {
-    config_path = var.kubeconfig_path
-  }
-}
+module "opencost" {
+  source = "./modules/opencost"
 
-resource "helm_release" "opencost" {
-  name       = var.release_name
-  repository = "https://opencost.github.io/opencost-helm-chart"
-  chart      = "opencost-charts/opencost"
-  version    = var.chart_version != "" ? var.chart_version : null
-
-  create_namespace = true
-  namespace        = var.namespace
-  replace          = true
-
-  values = [var.values]
+  kubeconfig_path = var.kubeconfig_path
+  release_name    = var.release_name
+  namespace       = var.namespace
+  chart_version   = var.chart_version
+  values          = var.values
 }

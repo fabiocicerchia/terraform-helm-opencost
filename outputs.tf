@@ -1,14 +1,14 @@
 output "namespace" {
-  description = "Kubernetes namespace where OpenCost is deployed"
-  value       = helm_release.opencost.namespace
+  description = "The namespace where OpenCost is deployed"
+  value       = module.opencost.namespace
 }
 
 output "release_name" {
-  description = "Helm release name of OpenCost"
-  value       = helm_release.opencost.name
+  description = "The Helm release name of OpenCost"
+  value       = module.opencost.release_name
 }
 
-output "chart_version" {
-  description = "Chart version of OpenCost deployment"
-  value       = helm_release.opencost.version
+output "version" {
+  description = "The version of OpenCost deployed"
+  value       = module.opencost.version
 }
