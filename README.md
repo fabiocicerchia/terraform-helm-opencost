@@ -15,7 +15,7 @@ OpenCost provides cost monitoring and allocation with carbon footprint tracking.
 
 ```hcl
 module "opencost" {
-  source = "git::https://github.com/fabiocicerchia/tf-k8s-opencost-module.git?ref=main"
+  source = "git::https://github.com/fabiocicerchia/terraform-k8s-opencost-module.git?ref=main"
 
   kubeconfig_path = "~/.kube/config"
   release_name    = "opencost-charts"
@@ -55,7 +55,7 @@ module "opencost" {
 
 ```hcl
 module "opencost" {
-  source = "git::https://github.com/fabiocicerchia/tf-k8s-opencost-module.git?ref=main"
+  source = "git::https://github.com/fabiocicerchia/terraform-k8s-opencost-module.git?ref=main"
 
   kubeconfig_path = "~/.kube/config"
   namespace       = "opencost"
@@ -66,7 +66,7 @@ module "opencost" {
 
 ```hcl
 module "opencost" {
-  source = "git::https://github.com/fabiocicerchia/tf-k8s-opencost-module.git?ref=main"
+  source = "git::https://github.com/fabiocicerchia/terraform-k8s-opencost-module.git?ref=main"
 
   kubeconfig_path = "~/.kube/config"
   
@@ -82,7 +82,7 @@ module "opencost" {
 
 ```hcl
 module "opencost" {
-  source = "git::https://github.com/fabiocicerchia/tf-k8s-opencost-module.git?ref=main"
+  source = "git::https://github.com/fabiocicerchia/terraform-k8s-opencost-module.git?ref=main"
 
   kubeconfig_path = "~/.kube/config"
   chart_version   = "1.15.0"
