@@ -17,7 +17,6 @@ OpenCost provides cost monitoring and allocation with carbon footprint tracking.
 module "opencost" {
   source = "git::https://github.com/fabiocicerchia/terraform-helm-opencost.git?ref=main"
 
-  kubeconfig_path = "~/.kube/config"
   release_name    = "opencost-charts"
   namespace       = "opencost"
 }
@@ -27,7 +26,6 @@ module "opencost" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| `kubeconfig_path` | Path to the kubeconfig file | `string` | `"~/.kube/config"` | no |
 | `release_name` | Helm release name for OpenCost | `string` | `"opencost-charts"` | no |
 | `namespace` | Kubernetes namespace for OpenCost | `string` | `"opencost"` | no |
 | `chart_version` | Helm chart version (empty string for latest) | `string` | `""` | no |
@@ -57,7 +55,6 @@ module "opencost" {
 module "opencost" {
   source = "git::https://github.com/fabiocicerchia/terraform-helm-opencost.git?ref=main"
 
-  kubeconfig_path = "~/.kube/config"
   namespace       = "opencost"
 }
 ```
@@ -67,8 +64,6 @@ module "opencost" {
 ```hcl
 module "opencost" {
   source = "git::https://github.com/fabiocicerchia/terraform-helm-opencost.git?ref=main"
-
-  kubeconfig_path = "~/.kube/config"
   
   values = {
     prometheus = {
@@ -84,7 +79,6 @@ module "opencost" {
 module "opencost" {
   source = "git::https://github.com/fabiocicerchia/terraform-helm-opencost.git?ref=main"
 
-  kubeconfig_path = "~/.kube/config"
   chart_version   = "1.15.0"
 }
 ```

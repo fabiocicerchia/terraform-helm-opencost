@@ -1,9 +1,13 @@
-module "opencost" {
-  source = "./modules/opencost"
+resource "helm_release" "opencost" {
+  name       = var.release_name
+  repository = "https://opencost.github.io/opencost-helm-chart"
+  chart      = "opencost"
+  version    = var.chart_version != "" ? var.chart_version : null
 
-  kubeconfig_path = var.kubeconfig_path
-  release_name    = var.release_name
-  namespace       = var.namespace
-  chart_version   = var.chart_version
-  values          = var.values
+  dependency_update = true
+  create_namespace  = true
+  namespace         = var.namespace
+  replace           = true
+
+  values = [yamlencode(var.values)]
 }
