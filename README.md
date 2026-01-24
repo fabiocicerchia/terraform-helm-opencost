@@ -15,7 +15,7 @@ OpenCost provides cost monitoring and allocation with carbon footprint tracking.
 
 ```hcl
 module "opencost" {
-  source = "git::https://github.com/fabiocicerchia/terraform-helm-opencost.git?ref=main"
+  source = "fabiocicerchia/opencost/helm"
 
   release_name    = "opencost-charts"
   namespace       = "opencost"
@@ -53,7 +53,7 @@ module "opencost" {
 
 ```hcl
 module "opencost" {
-  source = "git::https://github.com/fabiocicerchia/terraform-helm-opencost.git?ref=main"
+  source = "fabiocicerchia/opencost/helm"
 
   namespace       = "opencost"
 }
@@ -63,7 +63,7 @@ module "opencost" {
 
 ```hcl
 module "opencost" {
-  source = "git::https://github.com/fabiocicerchia/terraform-helm-opencost.git?ref=main"
+  source = "fabiocicerchia/opencost/helm"
   
   values = {
     prometheus = {
@@ -77,7 +77,7 @@ module "opencost" {
 
 ```hcl
 module "opencost" {
-  source = "git::https://github.com/fabiocicerchia/terraform-helm-opencost.git?ref=main"
+  source = "fabiocicerchia/opencost/helm"
 
   chart_version   = "1.15.0"
 }
