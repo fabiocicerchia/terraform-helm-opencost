@@ -1,4 +1,4 @@
-# OpenCost Module
+# Terraform Module for OpenCost
 
 Terraform module to deploy OpenCost (cloud cost monitoring) on Kubernetes using Helm.
 
@@ -41,7 +41,7 @@ module "opencost" {
 
 ## Requirements
 
-- Terraform >= 1.0
+- Terraform >= 1.0 or OpenTofu >= 1.6
 - Helm >= 2.0
 - Kubernetes v1.24+
 - Prometheus (for metrics data)
@@ -105,3 +105,7 @@ curl http://localhost:9090/healthz
 - [OpenCost Documentation](https://opencost.io/)
 - [OpenCost Helm Chart](https://github.com/opencost/opencost-helm-chart)
 - [OpenCost GitHub](https://github.com/opencost/opencost)
+
+## License
+
+MIT
