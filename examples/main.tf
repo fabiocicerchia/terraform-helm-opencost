@@ -11,9 +11,9 @@ terraform {
 module "opencost" {
   source = "../"
 
-  release_name    = "opencost"
-  namespace       = "opencost-system"
-  chart_version   = ""
+  release_name  = "opencost"
+  namespace     = "opencost-system"
+  chart_version = ""
 
   values = yamlencode({})
 }
