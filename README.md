@@ -44,8 +44,11 @@ module "opencost" {
 - Terraform >= 1.0 or OpenTofu >= 1.6
 - Helm >= 2.0
 - Kubernetes v1.24+
-- Prometheus (for metrics data)
 - kubectl configured to access your cluster
+
+### Dependencies
+
+**Important:** OpenCost requires Prometheus to function properly. Ensure you have Prometheus deployed in your cluster and configure OpenCost to connect to it via the `values` configuration.
 
 ## Usage
 
