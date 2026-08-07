@@ -67,7 +67,7 @@ module "opencost" {
 ```hcl
 module "opencost" {
   source = "fabiocicerchia/opencost/helm"
-  
+
   values = {
     prometheus = {
       server = "http://prometheus-server.monitoring.svc.cluster.local:80"
