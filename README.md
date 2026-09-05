@@ -24,20 +24,20 @@ module "opencost" {
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| `release_name` | Helm release name for OpenCost | `string` | `"opencost-charts"` | no |
-| `namespace` | Kubernetes namespace for OpenCost | `string` | `"opencost"` | no |
-| `chart_version` | Helm chart version (empty string for latest) | `string` | `""` | no |
-| `values` | Helm values for OpenCost deployment | `any` | `{}` | no |
+| Name            | Description                                  | Type     | Default             | Required |
+| --------------- | -------------------------------------------- | -------- | ------------------- | :------: |
+| `release_name`  | Helm release name for OpenCost               | `string` | `"opencost-charts"` | no       |
+| `namespace`     | Kubernetes namespace for OpenCost            | `string` | `"opencost"`        | no       |
+| `chart_version` | Helm chart version (empty string for latest) | `string` | `""`                | no       |
+| `values`        | Helm values for OpenCost deployment          | `any`    | `{}`                | no       |
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| `namespace` | Kubernetes namespace where OpenCost is deployed |
-| `release_name` | Helm release name of OpenCost |
-| `chart_version` | Chart version of OpenCost deployment |
+| Name            | Description                                     |
+| --------------- | ----------------------------------------------- |
+| `namespace`     | Kubernetes namespace where OpenCost is deployed |
+| `release_name`  | Helm release name of OpenCost                   |
+| `chart_version` | Chart version of OpenCost deployment            |
 
 ## Requirements
 
