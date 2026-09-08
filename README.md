@@ -25,7 +25,7 @@ module "opencost" {
 ## Inputs
 
 | Name            | Description                                  | Type     | Default             | Required |
-| --------------- | -------------------------------------------- | -------- | ------------------- | :------: |
+| --------------- | -------------------------------------------- | -------- | ------------------- | -------- |
 | `release_name`  | Helm release name for OpenCost               | `string` | `"opencost-charts"` | no       |
 | `namespace`     | Kubernetes namespace for OpenCost            | `string` | `"opencost"`        | no       |
 | `chart_version` | Helm chart version (empty string for latest) | `string` | `""`                | no       |
