@@ -6,7 +6,7 @@ Feature: Trying OpenCost with the ready-made example
     Given the operator has a Kubernetes cluster reachable by the Helm provider
 
   @id:getting-started.usage-example.001 @rule:getting-started.example-provider-setup.helm-provider-limited-to-2x @inferred @source:examples/main.tf#terraform @questionable
-  Scenario Outline: The example accepts only Helm provider 2.x and Terraform 1.0 or newer
+  Scenario Outline: The example accepts only Helm provider 2.x
     Given the operator uses the example configuration
     When the operator initialises the example with Helm provider version <helm_version>
     Then initialisation <outcome>

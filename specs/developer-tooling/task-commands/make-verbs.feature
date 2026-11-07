@@ -29,7 +29,7 @@ Feature: Discovering and running the repository's task verbs
     Given tflint is not installed
     When the contributor runs the analyze verb
     Then the message "analyze needs tflint: https://github.com/terraform-linters/tflint" is shown on standard error
-    And the verb exits with status 69
+    And the verb fails, with make reporting error 69
     And no analysis is performed
 
   @id:developer-tooling.task-commands.004 @rule:tooling.make.test-validates-module-and-examples @inferred @source:Makefile#test
