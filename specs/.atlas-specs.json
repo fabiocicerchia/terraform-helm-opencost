@@ -1,0 +1,470 @@
+{
+ "excluded": {
+  "examples/examples": [
+   {
+    "candidate": "Example re-exports namespace, release name and chart version as outputs",
+    "covered_by": "not in this module's source list (examples/main.tf); belongs to deployment-reporting/example-outputs",
+    "reason": "UNVERIFIABLE",
+    "source": "examples/outputs.tf"
+   },
+   {
+    "candidate": "Example references the module by relative path ../",
+    "covered_by": "",
+    "reason": "TECH_INFRA",
+    "source": "examples/main.tf#module.opencost"
+   },
+   {
+    "candidate": "The example installs the latest OpenCost chart as release opencost in namespace opencost-system",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "examples/main.tf#module.opencost"
+   },
+   {
+    "candidate": "The example's empty custom values reach the chart as a quoted YAML string instead of an empty map",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "examples/main.tf#module.opencost"
+   }
+  ],
+  "examples/outputs": [
+   {
+    "candidate": "Wording of each example output's description text",
+    "covered_by": "",
+    "reason": "TRIVIAL",
+    "source": "examples/outputs.tf#opencost_namespace"
+   }
+  ],
+  "terraform-helm-opencost/makefile": [
+   {
+    "candidate": "setup installs the pre-commit hook",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "Makefile#setup"
+   },
+   {
+    "candidate": "install runs terraform init -backend=false to download pinned providers",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "Makefile#install"
+   },
+   {
+    "candidate": "lint runs every pre-commit hook over every file",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "Makefile#lint"
+   },
+   {
+    "candidate": "format rewrites Terraform sources with terraform fmt -recursive",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "Makefile#format"
+   },
+   {
+    "candidate": "analyze runs tflint --recursive when tflint is installed",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "Makefile#analyze"
+   },
+   {
+    "candidate": "test discards terraform init output",
+    "covered_by": "",
+    "reason": "INTERNAL_MECHANISM",
+    "source": "Makefile#test"
+   },
+   {
+    "candidate": "all verbs declared .PHONY",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "Makefile#.PHONY"
+   }
+  ],
+  "terraform-helm-opencost/outputs": [
+   {
+    "candidate": "Output descriptions text (\"Kubernetes namespace where OpenCost is deployed\", etc.)",
+    "covered_by": "",
+    "reason": "TRIVIAL",
+    "source": "outputs.tf#namespace"
+   },
+   {
+    "candidate": "Outputs are read from the helm_release resource attributes rather than echoing the input variables",
+    "covered_by": "",
+    "reason": "INTERNAL_MECHANISM",
+    "source": "outputs.tf#release_name"
+   }
+  ],
+  "terraform-helm-opencost/terraform-helm-opencost": [
+   {
+    "candidate": "Chart dependencies are refreshed before every install (dependency_update = true)",
+    "covered_by": "",
+    "reason": "INTERNAL_MECHANISM",
+    "source": "main.tf#helm_release.opencost"
+   },
+   {
+    "candidate": "Values are serialised to YAML before being handed to Helm",
+    "covered_by": "",
+    "reason": "INTERNAL_MECHANISM",
+    "source": "main.tf#helm_release.opencost"
+   },
+   {
+    "candidate": "Reporting the namespace, release name and chart version (outputs.tf, a separate module file)",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "outputs.tf#output.namespace"
+   },
+   {
+    "candidate": "OpenCost is installed from the official chart repository under the chosen release name",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "main.tf#helm_release.opencost"
+   },
+   {
+    "candidate": "OpenCost goes into the chosen namespace, which is created if it does not exist",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "main.tf#helm_release.opencost"
+   },
+   {
+    "candidate": "A pinned chart version is installed, and leaving it empty installs the latest",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "main.tf#helm_release.opencost"
+   },
+   {
+    "candidate": "Helm values the operator supplies reach the OpenCost chart unchanged",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "main.tf#helm_release.opencost"
+   },
+   {
+    "candidate": "A release name left behind by an earlier OpenCost install can be used again",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "main.tf#helm_release.opencost"
+   }
+  ],
+  "terraform-helm-opencost/tflint": [
+   {
+    "candidate": "TFLint terraform plugin enabled with the 'all' preset",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#plugin.terraform"
+   },
+   {
+    "candidate": "Every configuration must declare a required Terraform version (terraform_required_version)",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#rule.terraform_required_version"
+   },
+   {
+    "candidate": "Every provider used must be declared with source and version (terraform_required_providers)",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#rule.terraform_required_providers"
+   },
+   {
+    "candidate": "Every input variable must have a description (terraform_documented_variables)",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#rule.terraform_documented_variables"
+   },
+   {
+    "candidate": "Every output must have a description (terraform_documented_outputs)",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#rule.terraform_documented_outputs"
+   },
+   {
+    "candidate": "Every input variable must declare a type (terraform_typed_variables)",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#rule.terraform_typed_variables"
+   },
+   {
+    "candidate": "Block and attribute names must be snake_case (terraform_naming_convention)",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#rule.terraform_naming_convention"
+   },
+   {
+    "candidate": "Unused variables, locals and data sources are flagged (terraform_unused_declarations)",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#rule.terraform_unused_declarations"
+   },
+   {
+    "candidate": "Module sources must be pinned to a version/ref (terraform_module_pinned_source)",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#rule.terraform_module_pinned_source"
+   }
+  ],
+  "terraform-helm-opencost/variables": [
+   {
+    "candidate": "Input descriptions and types (string/any) declared on each variable",
+    "covered_by": "",
+    "reason": "TECH_DEVTOOLING",
+    "source": "variables.tf#variable.values"
+   },
+   {
+    "candidate": "values accepts any type without validation",
+    "covered_by": "",
+    "reason": "INTERNAL_MECHANISM",
+    "source": "variables.tf#variable.values"
+   },
+   {
+    "candidate": "OpenCost installs with documented defaults when no inputs are given",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "variables.tf#variable.release_name"
+   },
+   {
+    "candidate": "OpenCost installs under the release name and namespace the operator chooses",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "variables.tf#variable.namespace"
+   },
+   {
+    "candidate": "A set chart version is installed exactly; an empty one installs the latest",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "variables.tf#variable.chart_version"
+   },
+   {
+    "candidate": "Custom settings reach the OpenCost chart unchanged",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "variables.tf#variable.values"
+   }
+  ],
+  "terraform-helm-opencost/versions": [
+   {
+    "candidate": "OpenTofu >= 1.6 compatibility stated in a file comment",
+    "covered_by": "compatibility.toolchain.minimum-terraform-1-0",
+    "reason": "DUPLICATE_OF",
+    "source": "versions.tf#terraform"
+   }
+  ]
+ },
+ "lifted": {
+  "examples/examples": [],
+  "examples/outputs": [],
+  "terraform-helm-opencost/makefile": [],
+  "terraform-helm-opencost/outputs": [],
+  "terraform-helm-opencost/terraform-helm-opencost": [],
+  "terraform-helm-opencost/tflint": [],
+  "terraform-helm-opencost/variables": [],
+  "terraform-helm-opencost/versions": []
+ },
+ "retired": [],
+ "scenarios": {
+  "compatibility.provider-requirements.001": {
+   "file": "specs/compatibility/provider-requirements/provider-requirements.feature",
+   "fingerprint": "c4352a3c0676",
+   "human": false,
+   "rule": "compatibility.provider.helm-2-or-later",
+   "source": "versions.tf#terraform",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "compatibility.toolchain-requirements.001": {
+   "file": "specs/compatibility/toolchain-requirements/toolchain-requirements.feature",
+   "fingerprint": "c4352a3c0676",
+   "human": false,
+   "rule": "compatibility.toolchain.minimum-terraform-1-0",
+   "source": "versions.tf#terraform",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "deployment-reporting.deployment-details.001": {
+   "file": "specs/deployment-reporting/deployment-details/deployment-details.feature",
+   "fingerprint": "5af63d6b96ad",
+   "human": false,
+   "rule": "deployment-reporting.deployment-details.reports-namespace-and-release-name",
+   "source": "outputs.tf#namespace",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "deployment-reporting.deployment-details.002": {
+   "file": "specs/deployment-reporting/deployment-details/deployment-details.feature",
+   "fingerprint": "cece76de6682",
+   "human": false,
+   "rule": "deployment-reporting.deployment-details.reports-deployed-chart-version",
+   "source": "outputs.tf#chart_version",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "deployment-reporting.example-outputs.001": {
+   "file": "specs/deployment-reporting/example-outputs/example-deployment-outputs.feature",
+   "fingerprint": "70e08c84352c",
+   "human": false,
+   "rule": "deployment-reporting.example-outputs.reexports-module-details",
+   "source": "examples/outputs.tf#opencost_namespace",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "developer-tooling.task-commands.001": {
+   "file": "specs/developer-tooling/task-commands/make-verbs.feature",
+   "fingerprint": "517de792f113",
+   "human": false,
+   "rule": "tooling.make.bare-make-lists-verbs",
+   "source": "Makefile#help",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "developer-tooling.task-commands.002": {
+   "file": "specs/developer-tooling/task-commands/make-verbs.feature",
+   "fingerprint": "4d16ff5f8f37",
+   "human": false,
+   "rule": "tooling.make.not-applicable-verbs-explain-themselves",
+   "source": "Makefile#build",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "developer-tooling.task-commands.003": {
+   "file": "specs/developer-tooling/task-commands/make-verbs.feature",
+   "fingerprint": "c5311b237c3f",
+   "human": false,
+   "rule": "tooling.make.analyze-refuses-without-tflint",
+   "source": "Makefile#analyze",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "developer-tooling.task-commands.004": {
+   "file": "specs/developer-tooling/task-commands/make-verbs.feature",
+   "fingerprint": "8145e195cde0",
+   "human": false,
+   "rule": "tooling.make.test-validates-module-and-examples",
+   "source": "Makefile#test",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "getting-started.usage-example.001": {
+   "file": "specs/getting-started/usage-example/usage-example.feature",
+   "fingerprint": "d9b0ccb746cd",
+   "human": false,
+   "rule": "getting-started.example-provider-setup.helm-provider-limited-to-2x",
+   "source": "examples/main.tf#terraform",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  }
+ },
+ "taxonomy": {
+  "domains": [
+   {
+    "areas": [
+     {
+      "description": "Installs the OpenCost chart from the official chart repository under a chosen release name, replacing any prior release and updating chart dependencies.",
+      "slug": "release-install",
+      "title": "Release install"
+     },
+     {
+      "description": "Places OpenCost in a configurable namespace that is created automatically if missing.",
+      "slug": "namespace-placement",
+      "title": "Namespace placement"
+     },
+     {
+      "description": "Lets users pin a specific OpenCost chart version or fall back to the latest when left empty.",
+      "slug": "chart-version-pinning",
+      "title": "Chart version pinning"
+     },
+     {
+      "description": "Passes arbitrary user-supplied Helm values through to the OpenCost chart.",
+      "slug": "custom-configuration",
+      "title": "Custom configuration"
+     }
+    ],
+    "description": "Installing OpenCost into a Kubernetes cluster as a Helm release.",
+    "slug": "cost-monitoring-install",
+    "title": "Cost Monitoring Installation"
+   },
+   {
+    "areas": [
+     {
+      "description": "Reports the namespace, release name and chart version of the deployed OpenCost.",
+      "slug": "deployment-details",
+      "title": "Deployment details"
+     },
+     {
+      "description": "Shows how a calling configuration re-exports the module's deployment details.",
+      "slug": "example-outputs",
+      "title": "Example outputs"
+     }
+    ],
+    "description": "Exposing facts about the installed OpenCost so other infrastructure can consume them.",
+    "slug": "deployment-reporting",
+    "title": "Deployment Reporting"
+   },
+   {
+    "areas": [
+     {
+      "description": "Declares the minimum Terraform/OpenTofu version the module works with.",
+      "slug": "toolchain-requirements",
+      "title": "Toolchain requirements"
+     },
+     {
+      "description": "Declares the Helm provider source and minimum version required.",
+      "slug": "provider-requirements",
+      "title": "Provider requirements"
+     }
+    ],
+    "description": "Which tool and provider versions the module supports.",
+    "slug": "compatibility",
+    "title": "Compatibility"
+   },
+   {
+    "areas": [
+     {
+      "description": "A ready-made configuration that calls the module with typical settings.",
+      "slug": "usage-example",
+      "title": "Usage example"
+     },
+     {
+      "description": "Shows the version constraints a consumer declares when using the module.",
+      "slug": "example-provider-setup",
+      "title": "Example provider setup"
+     }
+    ],
+    "description": "Reference material showing how to adopt the module.",
+    "slug": "getting-started",
+    "title": "Getting Started"
+   },
+   {
+    "areas": [
+     {
+      "description": "A standard set of make verbs with self-documenting help and declared no-ops for build and run.",
+      "slug": "task-commands",
+      "title": "Task commands"
+     },
+     {
+      "description": "Initialises and validates both the module and its examples without a backend.",
+      "slug": "validation",
+      "title": "Validation"
+     },
+     {
+      "description": "Static analysis rules enforcing documented, typed, snake_case and pinned declarations, plus pre-commit hooks.",
+      "slug": "linting-and-style",
+      "title": "Linting and style"
+     },
+     {
+      "description": "Rewrites Terraform sources into canonical formatting.",
+      "slug": "formatting",
+      "title": "Formatting"
+     }
+    ],
+    "description": "Commands and quality gates contributors use to maintain the module.",
+    "slug": "developer-tooling",
+    "title": "Developer Tooling"
+   }
+  ]
+ }
+}
